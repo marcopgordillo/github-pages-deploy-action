@@ -56,7 +56,7 @@ git config --global user.email "${COMMIT_EMAIL}" && \
 git config --global user.name "${COMMIT_NAME}" && \
 
 ## Initializes the repository path using the access token.
-REPOSITORY_PATH="https://${ACCESS_TOKEN:-"x-access-token:$GITHUB_TOKEN"}@github.com/${GITHUB_REPOSITORY}.git" && \
+REPOSITORY_PATH="https://${ACCESS_TOKEN:-"x-access-token:$GITHUB_TOKEN"}@github.com/${DEST_REPOSITORY}.git" && \
 
 # Checks to see if the remote exists prior to deploying.
 # If the branch doesn't exist it gets created here as an orphan.
@@ -88,7 +88,7 @@ fi
 echo "Deploying to GitHub..." && \
 cd "./${FOLDER}" && \
 git add -A . && \
-echo $GITHUB_REPOSITORY
+echo $DEST_REPOSITORY
 echo $REPOSITORY_PATH
 git commit -m "Deploying to ${BRANCH} from ${BASE_BRANCH:-master} ${GITHUB_SHA}" --quiet && \
 echo "`git subtree split --prefix $FOLDER ${BASE_BRANCH:-master}`:${BRANCH} --force"
