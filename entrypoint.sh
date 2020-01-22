@@ -87,11 +87,12 @@ fi
 # Commits the data to Github.
 echo "Deploying to GitHub..." && \
 cd "./${FOLDER}" && \
+git init
 git add -A . && \
 echo $DEST_REPOSITORY
 echo $REPOSITORY_PATH
 git commit -m "Deploying to ${BRANCH} from ${BASE_BRANCH:-master} ${GITHUB_SHA}" --quiet && \
-echo "`git subtree split --prefix $FOLDER ${BASE_BRANCH:-master}`:${BRANCH} --force"
-git push $REPOSITORY_PATH `git subtree split --prefix $FOLDER ${BASE_BRANCH:-master}`:$BRANCH --force && \
+# git push $REPOSITORY_PATH `git subtree split --prefix $FOLDER ${BASE_BRANCH:-master}`:$BRANCH --force && \
+git push -f $REPOSITORY_PATH $BRANCH
 
 echo "Deployment succesful!"
