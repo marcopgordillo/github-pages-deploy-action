@@ -8,5 +8,11 @@ LABEL "com.github.actions.name"="Deploy to GitHub Pages" \
       "homepage"="http://github.com/grasilife/gh-pages-gh-action" \
       "maintainer"="grasilife <434543162@qq.com>"
 
+# Installs Git and jq.
+RUN apt-get update && \
+    apt-get install -y git && \
+    apt-get install -y jq && \
+    rm -rf /var/lib/apt/lists/*
+
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
