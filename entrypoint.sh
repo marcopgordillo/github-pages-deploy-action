@@ -91,8 +91,8 @@ fi
 
 # Commits the data to Github.
 echo "Deploying to GitHub..." && \
-ls docs
-cd "${FOLDER}"
+ls docs && \
+cd "${FOLDER}" && \
 git add -A . && \
 
 git commit -m "Deploying to ${BRANCH} from ${BASE_BRANCH:-master} ${GITHUB_SHA}" --quiet && \
