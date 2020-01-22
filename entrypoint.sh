@@ -91,10 +91,9 @@ fi
 
 # Commits the data to Github.
 echo "Deploying to GitHub..." && \
-ls ./docs/.vuepress && \
-cd "${FOLDER}" && \
+cd "./${FOLDER}" && \
 git add -A . && \
-
+echo $REPOSITORY_PATH && \
 git commit -m "Deploying to ${BRANCH} from ${BASE_BRANCH:-master} ${GITHUB_SHA}" --quiet && \
 git push $REPOSITORY_PATH `git subtree split --prefix $FOLDER ${BASE_BRANCH:-master}`:$BRANCH --force && \
 
