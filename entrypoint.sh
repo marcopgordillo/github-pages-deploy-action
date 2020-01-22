@@ -91,7 +91,7 @@ fi
 
 # Commits the data to Github.
 echo "Deploying to GitHub..." && \
-ls docs && \
+ls ./docs/.vuepress && \
 cd "${FOLDER}" && \
 git add -A . && \
 
