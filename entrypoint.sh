@@ -57,7 +57,7 @@ git config --global user.name "${COMMIT_NAME}" && \
 
 ## Initializes the repository path using the access token.
 # REPOSITORY_PATH="https://${ACCESS_TOKEN:-"x-access-token:$GITHUB_TOKEN"}@github.com/${DEST_REPOSITORY}.git" && \
-REPOSITORY_PATH="https://${USER_GITHUB}:${ACCESS_TOKEN:-"x-access-token:$GITHUB_TOKEN"}@github.com/${DEST_REPOSITORY:$GITHUB_REPOSITORY}.git" && \
+REPOSITORY_PATH="https://${USER_GITHUB}:${ACCESS_TOKEN:-"x-access-token:$GITHUB_TOKEN"}@github.com/${DEST_REPOSITORY:-$GITHUB_REPOSITORY}.git" && \
 
 # Checks to see if the remote exists prior to deploying.
 # If the branch doesn't exist it gets created here as an orphan.
