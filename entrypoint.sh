@@ -91,6 +91,8 @@ fi
 
 # Commits the data to Github.
 echo "Deploying to GitHub..." && \
+pwd
+ls $FOLDER
 cd "./${FOLDER}"
 git add -A . && \
 
