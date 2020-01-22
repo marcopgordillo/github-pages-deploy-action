@@ -93,5 +93,5 @@ git add -A . && \
 git commit -m "Deploy" && \
 # git push $REPOSITORY_PATH `git subtree split --prefix $FOLDER ${BASE_BRANCH:-master}`:$BRANCH --force && \
 # git push -f $REPOSITORY_PATH $BRANCH && \
-git push -f https://${ACCESS_TOKEN}@github.com/contamg/contamg.github.io.git master && \
+git push -f https://${USER_GITHUB}:${ACCESS_TOKEN}@github.com/contamg/contamg.github.io.git master && \
 echo "Deployment succesful!"
